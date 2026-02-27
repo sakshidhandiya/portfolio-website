@@ -31,6 +31,9 @@ app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
 db.init_app(app)
 
+with app.app_context():
+    db.create_all()
+
 # -----------------------------
 # LOGIN MANAGER
 # -----------------------------
@@ -239,6 +242,4 @@ def create_admin():
     db.session.commit()
     return "Admin created successfully!"
 if __name__ == "__main__":
-    with app.app_context():
-        db.create_all()
     app.run(host="0.0.0.0", port=5000)
