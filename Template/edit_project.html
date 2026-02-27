@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-4">Edit Project</h2>
+
+<div class="card p-4 bg-secondary bg-opacity-25">
+    <form method="POST">
+
+        <label class="mb-1">Project Title</label>
+        <input type="text"
+               name="title"
+               class="form-control mb-3"
+               value="{{ project.title }}"
+               required>
+
+        <label class="mb-1">Project Description</label>
+        <textarea name="description"
+                  class="form-control mb-3"
+                  rows="5"
+                  required>{{ project.description }}</textarea>
+
+        <label class="mb-1">Tools Used</label>
+        <input type="text"
+               name="tools"
+               class="form-control mb-3"
+               value="{{ project.tools }}"
+               required>
+
+        <button class="btn btn-info">Save Changes</button>
+        <a href="{{ url_for('admin_dashboard') }}"
+           class="btn btn-secondary ms-2">Cancel</a>
+
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card p-4 bg-secondary bg-opacity-25">
+    <h2>{{ project.title }}</h2>
+
+    <p><strong>Tools Used:</strong> {{ project.tools }}</p>
+
+    <p class="project-description">{{ project.description }}</p>
+
+    <hr>
+
+    <h5>Project Files</h5>
+    <ul>
+        {% for file in project.files %}
+            <li>
+                <a href="/download/{{ file.filename }}" class="text-info">
+                    {{ file.filename }}
+                </a>
+            </li>
+        {% else %}
+            <li class="text-muted">No files uploaded</li>
+        {% endfor %}
+    </ul>
+
+    <a href="/" class="btn btn-secondary mt-3">Back</a>
+</div>
+
+{% endblock %}

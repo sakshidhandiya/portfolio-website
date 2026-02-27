@@ -1,0 +1,160 @@
+/* ===== GLOBAL THEME ===== */
+body {
+    background: linear-gradient(135deg, #0f172a, #1e293b, #020617);
+    color: #e5e7eb;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    border-bottom: 1px solid #1e293b;
+}
+
+/* ===== HEADINGS ===== */
+h1, h2, h3, h4, h5 {
+    color: #38bdf8;
+}
+
+/* ===== CARDS ===== */
+.card {
+    background-color: rgba(30, 41, 59, 0.85);
+    border: 1px solid #334155;
+    border-radius: 12px;
+}
+
+/* ===== BUTTONS ===== */
+.btn-info {
+    background-color: #38bdf8;
+    border: none;
+    color: #020617;
+}
+
+.btn-info:hover {
+    background-color: #0ea5e9;
+    color: #ffffff;
+}
+
+/* ===== LINKS ===== */
+a {
+    color: #38bdf8;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #7dd3fc;
+}
+
+/* ===== INPUTS ===== */
+input, textarea {
+    background-color: #020617 !important;
+    color: #e5e7eb !important;
+    border: 1px solid #334155 !important;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #94a3b8;
+}
+
+/* ===== FOOTER / SECTIONS ===== */
+.section {
+    padding: 60px 0;
+}
+/* Force text inside cards to be white */
+.card, .card * {
+    color: #e5e7eb !important;
+}
+/* ===== ADMIN FORM FIX: White text on dark background ===== */
+input.form-control,
+textarea.form-control,
+select.form-control {
+    color: #ffffff !important;
+    background-color: #020617 !important;
+    border: 1px solid #334155 !important;
+}
+
+/* Placeholder text */
+input::placeholder,
+textarea::placeholder {
+    color: #94a3b8 !important;
+}
+
+/* File input text */
+input[type="file"] {
+    color: #ffffff !important;
+}
+/* Preserve line breaks in project description */
+.project-description {
+    white-space: pre-line;
+}
+.profile-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid #38bdf8;
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+
+    background-image: url("/static/profile1.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 60% 45%;  /* 👈 FACE CENTERED */
+}
+/* ===== CONTACT SECTION ===== */
+.contact-section {
+    color: #e5e7eb;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+}
+
+.contact-item i {
+    font-size: 1.3rem;
+    color: #38bdf8;
+}
+
+.contact-item a {
+    color: #e5e7eb;
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    color: #38bdf8;
+    text-decoration: underline;
+}
+/* Internship duration styling */
+.card span.text-muted {
+    font-size: 0.95rem;
+}
+/* ===== SKILL LIST (BULLET STYLE) ===== */
+.skill-list {
+    list-style-type: disc;
+    padding-left: 18px;
+    margin: 0;
+}
+
+.skill-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.skill-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #475569;
+}
+
+.dot.filled {
+    background: #38bdf8;
+}

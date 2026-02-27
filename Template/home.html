@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Header -->
+<div class="row align-items-center mb-5">
+
+    <!-- LEFT: TEXT -->
+    <div class="col-md-8">
+        <h1 class="fw-bold">Data Analyst | Business Analyst</h1>
+        <p class="text-info fs-5">
+            Python • SQL • Power BI • Excel • Analytics
+        </p>
+
+        <a href="{{ url_for('static', filename='resume.pdf') }}"
+           class="btn btn-info mt-2">
+            Download Resume
+        </a>
+    </div>
+
+    <!-- RIGHT: PHOTO -->
+    <div class="col-md-4 text-center">
+       <div class="profile-photo"></div>
+    </div>
+
+</div>
+
+<!-- Skills -->
+<div class="mb-5">
+    <h3>Skills</h3>
+
+    <div class="row">
+        {% set categories = [
+            "Core Analytics Skills",
+            "Tools & Technologies",
+            "Dashboarding & Visualization",
+            "Statistical & Predictive Techniques"
+        ] %}
+
+        {% for category in categories %}
+        <div class="col-md-6 mb-4">
+            <div class="card p-4 bg-secondary bg-opacity-25 h-100">
+                <h5 class="text-info mb-3">{{ category }}</h5>
+
+                <ul class="skill-list">
+                    {% for skill in skills if skill.category == category %}
+                        <li>{{ skill.name }}</li>
+                    {% endfor %}
+                </ul>
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<!-- Internships -->
+<div class="mb-5">
+    <h3>Internships</h3>
+
+    {% if internships %}
+        {% for internship in internships %}
+        <div class="card p-3 mb-3 bg-secondary bg-opacity-25">
+            <div class="d-flex justify-content-between">
+                <strong>{{ internship.company }}</strong>
+                <span class="text-muted">{{ internship.duration }}</span>
+            </div>
+
+            <div class="mt-1 fst-italic">
+                {{ internship.role }}
+            </div>
+
+            <ul class="mt-2">
+                {% for line in internship.description.splitlines() %}
+                    <li>{{ line }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p class="text-muted">No internships added yet.</p>
+    {% endif %}
+</div>
+<!-- Projects -->
+<div class="mb-5">
+    <h3>Projects</h3>
+
+    {% for project in projects %}
+    <div class="card p-3 mb-3 bg-secondary bg-opacity-25">
+        <h5>{{ project.title }}</h5>
+        <p>{{ project.description[:180] }}...</p>
+        <a href="/project/{{ project.id }}" class="btn btn-outline-info btn-sm">
+            View Project
+        </a>
+    </div>
+    {% else %}
+        <p class="text-muted">No projects uploaded yet.</p>
+    {% endfor %}
+</div>
+
+<!-- Contact -->
+<div class="contact-section mt-5">
+    <h4 class="mb-3">Contact</h4>
+
+    <div class="contact-item">
+        <i class="fab fa-linkedin"></i>
+        <a href="https://www.linkedin.com/in/sakshii-dhandiya/"
+           target="_blank">
+            LinkedIn
+        </a>
+    </div>
+
+    <div class="contact-item">
+        <i class="fab fa-github"></i>
+        <a href="https://github.com/sakshidhandiya"
+           target="_blank">
+            GitHub
+        </a>
+    </div>
+
+    <div class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:shakshidhandiya02@gmail.com">
+            shakshidhandiya02@gmail.com
+        </a>
+    </div>
+</div>
+
+{% endblock %}
