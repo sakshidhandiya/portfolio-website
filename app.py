@@ -230,16 +230,5 @@ def delete_skill(id):
 # -----------------------------
 # RUN APP
 # -----------------------------
-@app.route("/create-admin")
-def create_admin():
-    from models import User
-    existing = User.query.filter_by(username="admin").first()
-    if existing:
-        return "Admin already exists!"
-
-    new_admin = User(username="admin", password="admin123")
-    db.session.add(new_admin)
-    db.session.commit()
-    return "Admin created successfully!"
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
